@@ -76,7 +76,12 @@ public class ImageViewAware extends ViewAware {
 		if (width <= 0) {
 			ImageView imageView = (ImageView) viewRef.get();
 			if (imageView != null) {
-				width = getImageViewFieldValue(imageView, "mMaxWidth"); // Check maxWidth parameter
+				if (android.os.Build.VERSION.SDK_INT <= android.os.Build.VERSION_CODES.P) {
+					width = getImageViewFieldValue(imageView, "mMaxWidth"); // Check maxWidth parameter
+				} else {
+					width = imageView.getMaxWidth();
+				}
+
 			}
 		}
 		return width;
@@ -93,7 +98,11 @@ public class ImageViewAware extends ViewAware {
 		if (height <= 0) {
 			ImageView imageView = (ImageView) viewRef.get();
 			if (imageView != null) {
-				height = getImageViewFieldValue(imageView, "mMaxHeight"); // Check maxHeight parameter
+				if (android.os.Build.VERSION.SDK_INT <= android.os.Build.VERSION_CODES.P) {
+					height = getImageViewFieldValue(imageView, "mMaxHeight"); // Check maxHeight parameter
+				} else {
+					height = imageView.getMaxHeight();
+				}
 			}
 		}
 		return height;
