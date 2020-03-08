@@ -79,7 +79,7 @@ public class ImageViewAware extends ViewAware {
 				if (android.os.Build.VERSION.SDK_INT <= android.os.Build.VERSION_CODES.P) {
 					width = getImageViewFieldValue(imageView, "mMaxWidth"); // Check maxWidth parameter
 				} else {
-					width = imageView.getMaxWidth();
+					width = 0; //imageView.getMaxWidth();
 				}
 
 			}
@@ -101,7 +101,7 @@ public class ImageViewAware extends ViewAware {
 				if (android.os.Build.VERSION.SDK_INT <= android.os.Build.VERSION_CODES.P) {
 					height = getImageViewFieldValue(imageView, "mMaxHeight"); // Check maxHeight parameter
 				} else {
-					height = imageView.getMaxHeight();
+					height = 0; //imageView.getMaxHeight();
 				}
 			}
 		}
